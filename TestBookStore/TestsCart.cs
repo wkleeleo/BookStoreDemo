@@ -130,6 +130,19 @@ namespace TestBookStore
             Assert.AreEqual(tax, expectedTotal);
         }
 
+        [Test]
+        [TestCase("Jack the Ripper", true)]
+        [TestCase("The Tolkien Years", false)]
+        public void CalculateDeliveryTest(string title, bool hasDelivery)
+        {
+            decimal total = 0;
+            decimal tax = 0;
+            decimal deliveryFee = 0;
 
+            _cart.AddItem(_bookList.Find(b => b.Title == title), 1);
+            total = _cart.CalculateTotal();
+            deliveryFee = _cart.CalculateDelivery(total);
+            Assert.AreEqual((deliveryFee > 0), hasDelivery);
+        }
     }
 }

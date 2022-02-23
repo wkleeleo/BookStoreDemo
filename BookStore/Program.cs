@@ -52,20 +52,22 @@ namespace BookStore
             //print table
             Console.Clear();
             PrintLine();
-            PrintRow("Title", "Quantity", "Unit Price", "Discount");
+            PrintRow("Title", "Genre", "Quantity", "Unit Price", "Discount");
             PrintLine();
             foreach (KeyValuePair<Book, int> item in cart.cartItems)
             {
                 decimal discountPrice = (item.Key.Price * (1 - item.Key.Genre.Discount)) * item.Value;
-                string discountPriceText = (item.Key.Genre.Discount * 100).ToString() + " %";
-                // do something with entry.Value or entry.Key
-                PrintRow(item.Key.Title, item.Value.ToString(), item.Key.Price.ToString(), discountPriceText);
+                string discountPercentage = (item.Key.Genre.Discount * 100).ToString() + " %";
+
+                PrintRow(item.Key.Title, item.Key.Genre.Name, item.Value.ToString(), discountPrice.ToString(), discountPercentage);
             }
             
             PrintLine();
             PrintLine();
             PrintRow("",  "Amount");
             PrintLine();
+            PrintRow("Delivery", DeliveryFee.ToString());
+            PrintRow("GST", Gst.ToString());
             PrintRow("Total without GST", Total.ToString());
             PrintRow("Total with GST",TotalWithGST.ToString());
             Console.ReadLine();

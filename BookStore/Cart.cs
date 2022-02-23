@@ -95,7 +95,6 @@ namespace BookStore
                 int itemCount = item.Value;
 
                 Total += (item.Key.Price * (1 - discount)) * itemCount;
-                // do something with entry.Value or entry.Key
             }
             return Total;
         }

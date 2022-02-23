@@ -1,6 +1,11 @@
 # Book store demo
 It is a demo of a book store with basic function to calculate order total price, GST and delivery cost.
-Assumptions:
+**Assumptions:**
+- No overseas ordering
+- run on console for Demo only
+
+**Restriction**
+- No database for demo purpose
 
 # Getting Started
 ## Prerequisites
